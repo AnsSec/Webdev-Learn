@@ -1,6 +1,6 @@
 const btn=document.querySelector('#btn');
 const colorCode=document.querySelector('#color-code');
-
+const bgColor=document.querySelector('.container')
 //random color generator
 const getColor = () => {
     const randomNumber=Math.floor(Math.random()*16777215);
@@ -8,6 +8,7 @@ const getColor = () => {
     document.body.style.backgroundColor=randomHexCode;
     colorCode.innerText=randomHexCode;
     navigator.clipboard.writeText(randomHexCode);
+    bgColor.style.backgroundColor=randomHexCode;
 }
 
 //initial code

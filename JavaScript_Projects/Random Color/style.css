@@ -22,8 +22,8 @@ body {
     width: 30rem;
     padding: 10px;
     border-radius: 10px;
-    font-size: 40px;
-    background-color: white;
+    font-size: 35px;
+    transition: 0.6s;
     text-align: center;
 }
 
