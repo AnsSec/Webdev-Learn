@@ -142,10 +142,9 @@ const validateForm =()=>{
     }
   
     if (!isChecked) {
-      error.classList.add('active')
+      error.innerText='Please select at least one option.'
     } else {
       // Submit the form or perform other actions as needed
-      error.classList.remove('active')
       submitQuiz();
     }
 };
