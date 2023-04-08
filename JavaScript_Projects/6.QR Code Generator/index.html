@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,44 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                'lite-color': '#da373d',
-              }
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-color': '#141D2F',
+                        'main-color': '#1E2A47',
+                        'btn-color': '#0079FF',
+                        'font-color': '#FFFFFF'
+                    }
+                }
             }
-          }
         }
-      </script>
+    </script>
     <title>QR Code Generator</title>
 </head>
+
 <body>
-    <h1 class="bg-black">hello</h1>
+    <div>
+        <div>
+            <h1>Generate qr code</h1>
+            <input type="text" placeholder="Enter Your Text...">
+            <p>Select Size:
+                <select id="">
+                    <option value="100">100x100</option>
+                    <option value="200">200x200</option>
+                    <option value="300">300x300</option>
+                    <option value="400">400x400</option>
+                    <option value="500">500x500</option>
+                    <option value="600">600x600</option>
+                    <option value="700">700x700</option>
+                    <option value="800">800x800</option>
+                    <option value="900">900x900</option>
+                    <option value="1000">1000x1000</option>
+                </select>
+            </p>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
 </body>
+
 </html>
