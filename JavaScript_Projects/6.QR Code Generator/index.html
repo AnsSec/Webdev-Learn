@@ -6,15 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            user-select: none;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'bg-color': '#141D2F',
-                        'main-color': '#1E2A47',
-                        'btn-color': '#0079FF',
-                        'font-color': '#FFFFFF'
+                        'dBlack': '#141D2F',
+                        'lBlack': '#1E2A47',
+                        'btnColor': '#0079FF',
+                        'fWhite': '#FFFFFF'
                     }
                 }
             }
@@ -23,13 +34,19 @@
     <title>QR Code Generator</title>
 </head>
 
-<body>
-    <div>
-        <div>
-            <h1>Generate qr code</h1>
-            <input type="text" placeholder="Enter Your Text...">
-            <label for="sizes">Select Size:</label>
-            <select id="">
+<body class="w-full h-[100vh] bg-dBlack   flex justify-center  items-center">
+    <div class="bg-lBlack p-8 w-96 rounded-lg">
+
+        <h1 class="uppercase text-2xl text-center text-fWhite mb-6">Generate qr code</h1>
+
+        <input class="w-full my-3 p-2 rounded-lg text-lg outline-none  border-solid border-2 border-dBlack " type="text"
+            placeholder="Enter Your Text..." id="qr-Text">
+
+        <div class="flex justify-between items-center">
+            
+            <label class="text-fWhite text-center  text-xl " for="sizes">Select Size:</label>
+
+            <select class="p-2 rounded-lg text-lg outline-none border-solid border-2 border-dBlack " id="sizes">
                 <option value="100">100x100</option>
                 <option value="200">200x200</option>
                 <option value="300">300x300</option>
@@ -41,10 +58,14 @@
                 <option value="900">900x900</option>
                 <option value="1000">1000x1000</option>
             </select>
-
         </div>
+
         <div></div>
-        <div></div>
+
+        <div class="mt-7 flex items-center justify-center  ">
+            <a class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"id="generate">Generate</a>
+            <a class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1" id="download">Download</a>
+        </div>
     </div>
 </body>
 
