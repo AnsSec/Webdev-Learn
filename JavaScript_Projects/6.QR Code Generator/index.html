@@ -16,6 +16,26 @@
             user-select: none;
             font-family: 'Roboto', sans-serif;
         }
+
+        #qr-Container img {
+            max-width: 100%;
+            max-height: 100%;
+            margin-block: 10px;
+            padding: 20px;
+            border: 0.5px solid black;
+            border-radius: 8px;
+        }
+
+        .error{
+            display:none;
+            justify-content:center; 
+            color: red;
+            transition: 2s ease-in-out;
+
+        }
+        .error.active{
+            display: flex;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -35,15 +55,15 @@
 </head>
 
 <body class="w-full h-[100vh] bg-dBlack   flex justify-center  items-center">
-    <div class="bg-lBlack p-8 w-96 rounded-lg">
+    <div class="bg-lBlack p-8 w-[400px] rounded-lg">
 
         <h1 class="uppercase text-2xl text-center text-fWhite mb-6">Generate qr code</h1>
-
+        <span class="error">Enter Your Text</span>
         <input class="w-full my-3 p-2 rounded-lg text-lg outline-none  border-solid border-2 border-dBlack " type="text"
             placeholder="Enter Your Text..." id="qr-Text">
 
         <div class="flex justify-between items-center">
-            
+
             <label class="text-fWhite text-center  text-xl " for="sizes">Select Size:</label>
 
             <select class="p-2 rounded-lg text-lg outline-none border-solid border-2 border-dBlack " id="sizes">
@@ -54,19 +74,22 @@
                 <option value="500">500x500</option>
                 <option value="600">600x600</option>
                 <option value="700">700x700</option>
-                <option value="800">800x800</option>
-                <option value="900">900x900</option>
-                <option value="1000">1000x1000</option>
             </select>
         </div>
 
-        <div id="qr-Container"></div>
+        <div class="w-full h-full p-5 grid place-items-center" id="qr-Container"></div>
 
         <div class="mt-7 flex items-center justify-center  ">
-            <a class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"id="generate">Generate</a>
-            <a class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1" id="download">Download</a>
+            <button class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"
+                onclick="generate()">Generate</button>
+            <button class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"
+                onclick="download()">Download</button>
         </div>
     </div>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
