@@ -80,11 +80,11 @@
 
         <div class="w-full h-full p-5 grid place-items-center" id="qr-Container"></div>
 
-        <div class="mt-7 flex items-center justify-center  ">
+        <div class="flex items-center justify-center  ">
             <button class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"
                 onclick="generate()">Generate</button>
-            <button class="bg-fWhite text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"
-                onclick="download()">Download</button>
+            <a class="bg-fWhite cursor-pointer text-lBlack text-lg  rounded-lg py-3 px-9 mx-1"
+                onclick="downloadbtn()" download="QR_code.png" id="download">Download</a>
         </div>
     </div>
     <script src="script.js"></script>

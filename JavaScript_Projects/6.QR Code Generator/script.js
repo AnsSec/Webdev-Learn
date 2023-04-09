@@ -2,25 +2,26 @@ const qrText = document.querySelector('#qr-Text')
 const sizes = document.querySelector('#sizes')
 const qrContainer = document.querySelector('#qr-Container')
 const error = document.querySelector('.error');
-
+const download=document.querySelector('#download')
 //generate button
 const generate = () => {
     isEmptyInput();
 };
 
 // download button
-const download = () => {
-
+const downloadbtn = () => {
+    let image=document.querySelector('#qr-Container img');
+    if(image!==null){
+        error.classList.remove('active')
+        let imageArr=image.getAttribute('src')
+        download.setAttribute('href',imageArr)
+    }else{
+        error.classList.add('active')
+    }
 }
 
 const isEmptyInput = () => {
-    // if (qrText.value.length > 0) {
-    //     generateQRcode();
-    //     error.classList.remove('active')
-    // } else {
-        
-    // }
-    qrText.value.length>0?[generateQRcode(), error.classList.remove('active')]:error.classList.add('active');
+    qrText.value.length > 0 ? [generateQRcode(), error.classList.remove('active')] : error.classList.add('active');
 }
 
 sizes.addEventListener('change', (e) => {
