@@ -18,7 +18,7 @@ body {
 }
 
 .navBar {
-    position: static;
+    position: sticky;
     top: 0;
     width: 100%;
     height: 3.8rem;
@@ -26,7 +26,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #141414; */
     color: #e5e7e8;
 }
 
@@ -84,8 +83,13 @@ body {
     cursor: pointer;
 }
 
+.image1{
+    transform: rotate(-11deg)
+}
+
 .children {
     font-size: 14px;
+    font-weight: 600;
 }
 
 .profileImage {
@@ -99,6 +103,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* Responsive Navigation */
 
 /* Laptop Screen 1025 */
 @media (max-width: 1025px) {
@@ -211,4 +217,15 @@ body {
     .image1{
         display: none;
     }
+}
+
+
+.backgroundImage{
+    content:url('/assets/images/bannerimg.jpg');
+    top: 0;
+    position: static;
+    padding-left: 15.2%;
+    margin-top: -68px;
+    
+    
 }
