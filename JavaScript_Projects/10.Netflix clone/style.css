@@ -17,10 +17,18 @@ body {
     height: 100vh;
 }
 
+.homeContainer{
+    background-image: url('/assets/images/bannerimg.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .navBar {
     position: sticky;
     top: 0;
-    width: 100%;
     height: 3.8rem;
     padding: 0px 60px;
     display: flex;
@@ -220,12 +228,10 @@ body {
 }
 
 
-.backgroundImage{
+/* .backgroundImage{
     content:url('/assets/images/bannerimg.jpg');
     top: 0;
     position: static;
     padding-left: 15.2%;
-    margin-top: -68px;
-    
-    
-}
+    margin-top: -68px;  
+} */
