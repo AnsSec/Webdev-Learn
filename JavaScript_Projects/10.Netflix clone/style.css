@@ -54,6 +54,11 @@ body {
     justify-content: center;
 }
 
+.menuSecton a:hover{
+    color: #c5cbcc;
+    transition: 0.5s ;
+}
+
 .browse {
     display: none;
 }
@@ -203,7 +208,7 @@ body {
 }
 
 @media (max-width: 300px){
-    .rightSection:nth-child(1){
+    .image1{
         display: none;
     }
 }
