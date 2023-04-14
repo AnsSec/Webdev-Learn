@@ -3,7 +3,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    user-select: none;
 }
+.active{
+    background-color: #010101;  
+    transition: all;
+    transition-duration: 200ms;
+
+  }
 @tailwind base;
 @tailwind components;
+
+
 @tailwind utilities;
