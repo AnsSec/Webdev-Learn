@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Home - Netflix</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="font-roboto">
+    <nav class="px-4 fixed top-0 left-0 w-full h-[41px] box-border flex items-center justify-between md:px-[30px] lg:px-9 lg:h-[68px] xl:px-[51px]"
+    >
+      <div class="gap-4  flex items-center">
+        <div class="md:h-5 lg:h-1/2 xl:pr-4">
+          <a href="/">
+            <img
+            class="w-11 h-4 sm:w-14 md:w-16 md:h-full cursor-pointer lg:w-[92px]"
+            src="./assets/svgs/Netflix_Logo.svg"
+            alt=""
+          />
+          </a>
+        </div>
+        <div class="text-white">
+          <a
+            href="/"
+            class="text-[10px] cursor-pointer font-thin xl:font-semibold flex items-center lg:hidden"
+            >Browse<img class="w-5" src="./assets/svgs/dropdown.svg" alt=""
+          /></a>
+          <ul class="hidden lg:flex gap-3 font-thin text-xs">
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">Home</a></li>
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">Shows Tv</a></li>
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">Movies</a></li>
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">New & Popular</a></li>
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">My List</a></li>
+            <li><a class="hover:text-gray-300 transition duration-300" href="/">Browse by Language</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="gap-3 h-full flex items-center">
+        <a class="sm:w-5 cursor-pointer" href="/"
+          ><img class="-rotate-12" src="/assets/svgs/search.svg" alt=""
+        /></a>
+        <a class="cursor-pointer text-white font-thin xl:font-semibold text-xs hidden xl:flex" href="/">Children</a>
+        <a class="w-5 h-fit cursor-pointer" href="/"
+          ><img src="/assets/svgs/bell.svg" alt=""
+        /></a>
+
+        <a class="cursor-pointer flex" href="/">
+          <img class="rounded" src="/assets/images/profile.png" alt="" />
+          <img class="w-5" src="./assets/svgs/dropdown.svg" alt="" />
+        </a>
+      </div>
+    </nav>
+    <section class="w-[100vw] h-[100vh] bg-banner bg-cover bg-center bg-no-repeat py-8">
+        <div class="pl-4 lg:pl-9">
+            <div class="w-32">
+                <img class="" src="/assets/images/titalLogo.png" alt="">
+            <p class="font-thin text-[4.5px] text-white">A fiery young man clashes with an unflinching forest officer in a south Indian village where spirituality, fate and folklore rule the lands.</p>
+            </div>
+            <div class="mt-2 flex items-center gap-3">
+                <button class="w-16 h-6 rounded flex items-center justify-center gap-1 bg-white">
+                    <img class="w-3 h-3" src="/assets/svgs/play.svg" alt="">
+                    <p class="text-[12px]">Play</p>
+                </button>
+
+                <button class="w-[84px] bg-[#6d6d6e66] h-6 rounded flex items-center justify-center gap-1 text-white">
+                    <img class="w-3 h-3 text-white" src="/assets/svgs/info.svg" alt="">
+                    <p class="text-[12px]">More info</p>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+  </body>
+</html>
