@@ -1,6 +1,5 @@
+// scroll animation 
 const navBar=document.querySelector('#navBar');
-
-
 const handleScroll = () => {
     const scrollvall=window.scrollY;
     navBar.classList.remove('active');

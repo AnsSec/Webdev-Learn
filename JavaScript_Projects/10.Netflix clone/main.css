@@ -9,8 +9,7 @@
 }
 .active{
     background-color: #010101;  
-    transition: all;
-    transition-duration: 200ms;
+    transition: all 0.1s smooth;
 
   }
 @tailwind base;
