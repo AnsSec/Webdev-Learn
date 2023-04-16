@@ -1,5 +1,5 @@
 const ApiKey=require('dotenv');
-
+ApiKey.config({path:'config.env'})
 // scroll animation 
 const navBar=document.querySelector('#navBar');
 const handleScroll = () => {
