@@ -1,4 +1,4 @@
-const apiKey='47530343367936e133c62869ed49faf8';//use api from env file
+const apiKey='47530343367936e133c62869ed49faf8';
 
 const ApiEndpoint='https://api.themoviedb.org/3';
 const Apipath={
@@ -28,7 +28,7 @@ const fetch_And_Build_AllSection=()=>{
 }
 
 const fetchAndBuildMovieSection=(categories)=>{
-    confirm
+    console.log(categories)
 }
 
 window.addEventListener('load',()=>{
