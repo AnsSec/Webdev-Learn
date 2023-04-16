@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {  
+  "scripts": {
     "start": "vite",
-    "build":"vite build"
+    "build": "vite build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "dotenv": "^16.0.3",
     "vite": "^4.2.1"
   },
   "devDependencies": {
