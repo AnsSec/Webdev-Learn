@@ -6,9 +6,9 @@ module.exports = {
       roboto:['Roboto','sans-serif']
     },
     extend: {
-      backgroundImage: {
-        'banner': "url('assets/images/banner.jpg')"
-      }
+      // backgroundImage: {
+      //   'banner': "url('assets/images/banner.jpg')"
+      // }
     },
   },
   plugins: [],
