@@ -18,7 +18,8 @@ const contentCategories={
 
 //Bootup
 const init=()=>{
-    fetch_And_Build_Genre();
+    // fetch_And_Build_Genre();
+    fetch_And_treandingALLday();
 }
 
 const content=document.querySelector('#content')
@@ -33,11 +34,33 @@ const fetch_And_Build_Genre=()=>{
             contentCategories.classList.add('carousel')
             contentCategories.innerHTML=val.name;
             content.appendChild(contentCategories)
-            console.log(`${val.id}=${val.name}`);
+            console.log(val);
         })
     })
     .catch(error=>console.log('error',error));
+}
 
+const carousel_1=document.querySelector('.carousel_1')
+
+const fetch_And_treandingALLday=()=>{
+    fetch(`${baseURL}${contentCategories.treandingAllDay}${apiKey}`)
+    .then(response=>response.json())
+    .then(result=>{
+    const moviesIMG=result.results
+    moviesIMG.forEach((val)=>{
+        const poster_url=`${imageBaseURL}${val.poster_path}`
+        let imagecontent=document.createElement('img');
+            imagecontent.src=poster_url;
+            carousel_1.appendChild(imagecontent)
+        console.log(poster_url)
+    })
+    })
+    .catch(error=>console.log('error',error))
+
+}
+
+const fetch_And_Generate_Image=()=>{
+    fetch(`${imageBaseURL}`)
 }
 
 

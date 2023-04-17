@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   scroll-behavior: smooth;
   user-select: none;
 }
@@ -17,13 +17,23 @@
 
 .backgroundimg{
 background-image: url('assets/images/banner.jpg');
+
 }
 
 .shadow-inset {
   box-shadow: inset 0 0 100px 60.5px rgba(20, 20, 20, 0.5);
+  position: ;
 }
 
 .carousel{
-  @apply text-white
+  @apply text-white flex overflow-x-scroll
+}
+
+.carousel::-webkit-scrollbar{
+  overflow: hidden;
+}
+
+.carousel_1 img {
+  @apply  w-28 px-1 sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-52 hover:scale-150 hover:
 }
 @tailwind utilities;
