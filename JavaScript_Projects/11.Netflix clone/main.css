@@ -25,7 +25,7 @@ background-image: url('assets/images/banner.jpg');
 }
 
 .carousel{
-  @apply text-white w-[90%] flex flex-grow-0 flex-shrink-0 overflow-x-scroll -translate-x-[00%]
+  @apply text-white w-[90%] flex flex-grow-0 flex-shrink-0 overflow-x-scroll 
 }
 
 .carousel::-webkit-scrollbar{
