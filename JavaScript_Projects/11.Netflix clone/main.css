@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 @tailwind base;
 @tailwind components;
 *{
@@ -24,8 +25,12 @@ background-image: url('assets/images/banner.jpg');
   box-shadow: inset 0 0 100px 60.5px rgba(20, 20, 20, 0.5);
 }
 
+.carousel_container{
+  @apply flex w-[95%] flex-col gap-2 -mt-2
+}
+
 .carousel{
-  @apply text-white flex overflow-x-scroll duration-300 scroll-smooth;
+  @apply flex overflow-x-scroll duration-300 scroll-smooth;
 }
 
 .carousel::-webkit-scrollbar{
@@ -37,6 +42,14 @@ background-image: url('assets/images/banner.jpg');
 }
 
 .title{
-  @apply text-white 
+  @apply text-[#e5e5e5] flex items-center w-fit text-xs font-extrabold lg:text-sm xl:text-lg 2xl:text-2xl pt-2 pr-1 mb-3 cursor-pointer
+}
+
+.title:hover:after{
+  content: 'Explore All \003E' ;
+  color: rgb(18, 224, 224);
+  margin-left: 1rem;
+  transition: all 400s ease-in-out smooth;
+  font-size: small; 
 }
 @tailwind utilities;
