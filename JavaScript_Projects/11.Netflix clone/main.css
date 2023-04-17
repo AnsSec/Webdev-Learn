@@ -37,6 +37,6 @@ background-image: url('assets/images/banner.jpg');
 }
 
 .title{
-  @apply text-white
+  @apply text-white 
 }
 @tailwind utilities;
