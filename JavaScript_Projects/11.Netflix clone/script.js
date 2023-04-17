@@ -6,9 +6,8 @@ const imageBaseURL='https://image.tmdb.org/t/p/original';
 
 //categories 
 const contentCategories={
-    genre:'/genre/movie/list?api_key=',
+    // genre:'/genre/movie/list?api_key=',
     treandingAllDay:'/trending/all/day?api_key=',
-    leatest:'/movie/latest?api_key=',
     nowPlaying:'/movie/now_playing?api_key=',
     popular:'/movie/popular?api_key=',
     topRated:'/movie/top_rated?api_key=',
@@ -17,31 +16,12 @@ const contentCategories={
 }
 
 //Bootup
-const init=()=>{
-    // fetch_And_Build_Genre();
-    fetch_And_treandingALLday();
-}
+    
 
 const content=document.querySelector('#content')
 
-const fetch_And_Build_Genre=()=>{
-    fetch(`${baseURL}${contentCategories.genre}${apiKey}`)
-    .then(response => response.json())
-    .then(result=>{
-        const categories=result.genres
-        categories.forEach((val)=>{
-            let contentCategories=document.createElement('div');
-            contentCategories.classList.add('carousel')
-            contentCategories.innerHTML=val.name;
-            content.appendChild(contentCategories)
-            console.log(val);
-        })
-    })
-    .catch(error=>console.log('error',error));
-}
 
 const carousel_1=document.querySelector('.carousel_1')
-
 const fetch_And_treandingALLday=()=>{
     fetch(`${baseURL}${contentCategories.treandingAllDay}${apiKey}`)
     .then(response=>response.json())
@@ -52,27 +32,64 @@ const fetch_And_treandingALLday=()=>{
         let imagecontent=document.createElement('img');
             imagecontent.src=poster_url;
             carousel_1.appendChild(imagecontent)
-        console.log(poster_url)
+        // console.log(poster_url)
     })
     })
     .catch(error=>console.log('error',error))
 
 }
 
-const fetch_And_Generate_Image=()=>{
-    fetch(`${imageBaseURL}`)
+const carousel_2=document.querySelector('.carousel_2')
+const fetch_And_nowPlaying=()=>{
+    fetch(`${baseURL}${contentCategories.nowPlaying}${apiKey}`)
+    .then(response=>response.json())
+    .then(result=>{
+        const moviesIMG=result.results
+        moviesIMG.forEach((val)=>{
+        const poster_url=`${imageBaseURL}${val.poster_path}`
+        let imagecontent=document.createElement('img');
+            imagecontent.src=poster_url;
+            carousel_2.appendChild(imagecontent)
+        // console.log(poster_url)
+    })
+    })
+    .catch(error=>console.log('error',error))
 }
 
+const carousel_3=document.querySelector('.carousel_3')
+const fetch_And_Popular=()=>{
+    fetch(`${baseURL}${contentCategories.popular}${apiKey}`)
+    .then(response=>response.json())
+    .then(result=>{
+        const moviesIMG=result.results
+        moviesIMG.forEach((val)=>{
+        const poster_url=`${imageBaseURL}${val.poster_path}`
+        let imagecontent=document.createElement('img');
+            imagecontent.src=poster_url;
+            carousel_3.appendChild(imagecontent)
+        // console.log(poster_url)
+    })
+    })
+    .catch(error=>console.log('error',error))
+}
 
+const carousel_4=document.querySelector('.carousel_4')
+const fetch_And_TopRated=()=>{
+    fetch(`${baseURL}${contentCategories.topRated}${apiKey}`)
+    .then(response=>response.json())
+    .then(result=>{
+        const moviesIMG=result.results
+        moviesIMG.forEach((val)=>{
+        const poster_url=`${imageBaseURL}${val.poster_path}`
+        let imagecontent=document.createElement('img');
+            imagecontent.src=poster_url;
+            carousel_4.appendChild(imagecontent)
+        // console.log(poster_url)
+    })
+    })
+    .catch(error=>console.log('error',error))
+}
 
-// const fetchAndBuildMovieSection=(categories)=>{
-//     // let categories_name=categories.id
-//     console.log(categories)
-// }
-
-window.addEventListener('load',()=>{
-    init();
-})
 
 // scroll animation 
 const navBar=document.querySelector('#navBar');
@@ -86,3 +103,9 @@ const handleScroll = () => {
     }
 };
 window.addEventListener('scroll',handleScroll);
+
+
+fetch_And_treandingALLday();
+fetch_And_nowPlaying();
+fetch_And_Popular();
+fetch_And_TopRated();
