@@ -25,7 +25,7 @@ background-image: url('assets/images/banner.jpg');
 }
 
 .carousel{
-  @apply text-white w-[90%] flex flex-grow-0 flex-shrink-0 overflow-x-scroll 
+  @apply text-white w-[95%] flex overflow-x-scroll;
 }
 
 .carousel::-webkit-scrollbar{
@@ -33,6 +33,6 @@ background-image: url('assets/images/banner.jpg');
 }
 /* sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-52 */
 .carousel_1 img {
-  @apply  w-28  p-1 aspect-square sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-52 
+  @apply  w-28  px-1 aspect-square sm:w-32 md:w-36 lg:w-40 xl:w-44 2xl:w-52 
 }
 @tailwind utilities;
