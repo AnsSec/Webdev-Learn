@@ -1,8 +1,19 @@
 import React from 'react'
-
-const Tours = () => {
+import Card from './Card'
+const Tours = ({tours , removeTour}) => {
   return (
-    <div>Tours</div>
+    <div>
+       <div>
+       <h1>Plan With Love</h1>
+       </div>
+       <div>
+    {
+        tours.map((tour)=>{
+            return <Card {...tour} removeTour={removeTour}></Card>
+        })
+    }
+       </div>
+    </div>
   )
 }
 

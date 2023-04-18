@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Tours from "./components/Tours";
-
+import data from "./data";
 import './index.css'
 
 const App = () => {
+  
+  const[tours,setTours]=useState(data)
+
+  const removeTour=(id)=>{
+    const newTour=tours.filter(tour=>tour.id !==id )
+    setTours(newTour);
+  }
   return (
     <div>
-      <h1>Plan With Love</h1>
-      <Tours></Tours>
+      <Tours tours={tours} removeTour={removeTour}></Tours>
     </div>
   )
 };
