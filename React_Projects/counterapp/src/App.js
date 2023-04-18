@@ -21,11 +21,11 @@ function App() {
 
       <div className="bg-white flex justify-center items-center py-3 gap-12 rounded-sm text-[25px] text-[#344151] ">
         <button onClick={decreaseHandler} className="border-r-2 text-center w-20 border-[#bfbfbf] text-5xl">-</button>
-        <div className="">{count}</div>
+        <div className="font-bold gap-12 test-5xl">{count}</div>
         <button onClick={increaseHandler} className="border-l-2 text-center w-20 border-[#bfbfbf] text-5xl">+</button>
       </div>
 
-      <button onClick={resetHandler} className="text-center text-3xl">Reset</button>
+      <button onClick={resetHandler} className="bg-[#0398d4] text-white uppercase w-fit px-4 py-2 rounded-sm text-3xl">Reset</button>
     </div>
   );
 }
