@@ -14,10 +14,21 @@ exports.registerUser = async (req, res) => {
 
     user = await User.create({ name: name, email: email, password: password });
 
-    res.status(200).json({
-      success: true,
-      message: "user successfully created",
-    });
+    const token = await user.generateToken();
+
+    const options={
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        httpOnly:true
+    };
+
+    res
+      .status(201)
+      .cookie("token", token, options)
+      .json({
+        status: true,
+        user,
+        token,
+      });
   } catch (error) {
     console.error(error);
     return res.status(404).json({
