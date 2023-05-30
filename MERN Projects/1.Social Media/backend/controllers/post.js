@@ -49,11 +49,12 @@ exports.deletePost = async (req, res) => {
       });
     }
 
-    await post.remove();
+    await post.deleteOne();
 
     const user=await User.findById(req.user._id);
 
     const index=user.posts.indexOf(req.params.id);
+
     user.posts.splice(index,1);
     await user.save();
 
