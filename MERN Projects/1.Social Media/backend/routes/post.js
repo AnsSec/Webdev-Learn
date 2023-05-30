@@ -1,5 +1,5 @@
 const express=require('express');
-const { createPost, likeAndUnlikePosts } = require('../controllers/post');
+const { createPost, likeAndUnlikePosts, deletePost } = require('../controllers/post');
 const { isAuthenticated } = require('../middlewares/auth');
 
 const router=express.Router();
@@ -7,6 +7,9 @@ const router=express.Router();
 
 router.route("/post/upload").post(isAuthenticated,createPost);
 
-router.route("/post/:id").get(isAuthenticated,likeAndUnlikePosts)
+router.route("/post/:id").get(isAuthenticated,likeAndUnlikePosts);
+
+router.route("/post/:id").delete(isAuthenticated,deletePost);
+
 
 module.exports=router;
