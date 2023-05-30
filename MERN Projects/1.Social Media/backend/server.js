@@ -2,11 +2,13 @@ const express=require('express');
 const {connectDB} = require('../backend/config/database')
 require('dotenv').config({path:"backend/config/.env"});
 // const bodyParser = require('body-parser');
+const cookieParser=require('cookie-parser');
 
 const app=express();
 
 //using middlewares
 app.use(express.json());
+app.use(cookieParser())
 
 //Importing routes 
 const post =require("./routes/post");
