@@ -131,9 +131,9 @@ exports.getPostOfFollowing = async (req, res) => {
   }
 };
 
-exports.updateCaption = async (res, req) => {
+exports.updateCaption = async (req, res) => {
   try {
-    const post = await User.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
 
     if (!post) {
       return res.status(404).json({
@@ -150,12 +150,10 @@ exports.updateCaption = async (res, req) => {
     }
 
     post.caption = req.body.caption;
-
     await post.save();
-
     res.status(200).json({
       success: true,
-      message: "caption update",
+      message: "Post updated",
     });
   } catch (error) {
     res.status(500).json({
@@ -163,4 +161,4 @@ exports.updateCaption = async (res, req) => {
       message: error.message,
     });
   }
-};
+}
