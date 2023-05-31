@@ -1,15 +1,22 @@
-const express=require('express');
-const { createPost, likeAndUnlikePosts, deletePost } = require('../controllers/post');
-const { isAuthenticated } = require('../middlewares/auth');
+const express = require("express");
+const {
+  createPost,
+  likeAndUnlikePosts,
+  deletePost,
+  updateCaption,
+} = require("../controllers/post");
+const { isAuthenticated } = require("../middlewares/auth");
+const { getPostOfFollowing } = require("../controllers/post");
 
-const router=express.Router();
+const router = express.Router();
 
+router.route("/post/upload").post(isAuthenticated, createPost);
+router
+  .route("/post/:id")
+  .get(isAuthenticated, likeAndUnlikePosts)
+  .put(isAuthenticated, updateCaption)
+  .delete(isAuthenticated, deletePost);
 
-router.route("/post/upload").post(isAuthenticated,createPost);
+router.route("/posts").get(isAuthenticated, getPostOfFollowing);
 
-router.route("/post/:id").get(isAuthenticated,likeAndUnlikePosts);
-
-router.route("/post/:id").delete(isAuthenticated,deletePost);
-
-
-module.exports=router;
+module.exports = router;

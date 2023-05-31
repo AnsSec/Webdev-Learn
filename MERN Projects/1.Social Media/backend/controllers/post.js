@@ -51,11 +51,11 @@ exports.deletePost = async (req, res) => {
 
     await post.deleteOne();
 
-    const user=await User.findById(req.user._id);
+    const user = await User.findById(req.user._id);
 
-    const index=user.posts.indexOf(req.params.id);
+    const index = user.posts.indexOf(req.params.id);
 
-    user.posts.splice(index,1);
+    user.posts.splice(index, 1);
     await user.save();
 
     res.status(200).json({
@@ -101,6 +101,62 @@ exports.likeAndUnlikePosts = async (req, res) => {
         message: "post Liked",
       });
     }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.getPostOfFollowing = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+
+    const posts = await Post.find({
+      owner: {
+        $in: user.following,
+      },
+    });
+
+    res.status(200).json({
+      success: true,
+      posts,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.updateCaption = async (res, req) => {
+  try {
+    const post = await User.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({
+        success: false,
+        message: "Post not found",
+      });
+    }
+
+    if (post.owner.toString() !== req.user._id.toString()) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+
+    post.caption = req.body.caption;
+
+    await post.save();
+
+    res.status(200).json({
+      success: true,
+      message: "caption update",
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
