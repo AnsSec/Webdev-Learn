@@ -339,11 +339,21 @@ exports.forgotPassword = async (req, res) => {
         subject: "Reset Password",
         message
       });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        message: error.message,
+
+      res.status(200).json({
+        success: true,
+        message: `Email send to ${user.email}`,
       });
+    } catch (error) {
+      user.resetPasswordToken=undefined;
+      user.resetPasswordExpire=undefined;
+      await user.save();
+
+      res.status(500).json({
+        success:false,
+        message:error.message,
+        
+      })
     }
   } catch (error) {
     res.status(500).json({
