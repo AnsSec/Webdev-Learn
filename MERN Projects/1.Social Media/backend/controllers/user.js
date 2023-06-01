@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const Post = require("../models/Post")
+const Post = require("../models/Post");
 
 exports.registerUser = async (req, res) => {
   try {
@@ -210,8 +210,8 @@ exports.deleteMyProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     const posts = user.posts;
-    const followers=user.followers;
-    const following=user.following;
+    const followers = user.followers;
+    const following = user.following;
 
     await user.deleteOne();
 
@@ -230,22 +230,20 @@ exports.deleteMyProfile = async (req, res) => {
     //removing user from followers following
     for (let i = 0; i < followers.length; i++) {
       const follower = await User.findById(followers[i]);
-      
-      const index=follower.following.indexOf(user._id);
-      follower.following.splice(index,1);
-      await follower.save();
 
-    };
+      const index = follower.following.indexOf(user._id);
+      follower.following.splice(index, 1);
+      await follower.save();
+    }
 
     //removing user from  following followers
     for (let i = 0; i < following.length; i++) {
       const follows = await User.findById(following[i]);
-      
-      const index=follows.followers.indexOf(user._id);
-      follows.followers.splice(index,1);
-      await follows.save();
 
-    };
+      const index = follows.followers.indexOf(user._id);
+      follows.followers.splice(index, 1);
+      await follows.save();
+    }
 
     res.status(200).json({
       success: true,
@@ -259,15 +257,14 @@ exports.deleteMyProfile = async (req, res) => {
   }
 };
 
-exports.myProfile=async(req,res)=>{
+exports.myProfile = async (req, res) => {
   try {
-    const user=await User.findById(req.user._id).populate("posts");
+    const user = await User.findById(req.user._id).populate("posts");
 
     res.status(200).json({
       success: true,
       user,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -276,37 +273,78 @@ exports.myProfile=async(req,res)=>{
   }
 };
 
-exports.getUserProfile= async (req,res) =>{
+exports.getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("posts");
 
-    if(!user){
+    if (!user) {
       res.status(404).json({
         success: false,
         message: "user not found",
       });
-    };
+    }
 
     res.status(200).json({
       success: true,
       user,
-    })
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
       message: error.message,
-    })
+    });
   }
 };
 
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find({});
-    
+
     res.status(200).json({
       success: true,
       users,
     });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.forgotPassword = async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const resetPasswordToken = user.getResetPasswordToken();
+
+    await user.save();
+
+    const resetUrl = `${req.protocol}://${req.get(
+      "host"
+    )}/api/v1/resetPassword/reset${resetPasswordToken}`;
+
+    const message = `Reset Your Password by clicking on the link below: \n \n ${resetUrl}`;
+
+    try {
+      await sendEmail({
+        email:user.email, 
+        subject: "Reset Password",
+        message
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
   } catch (error) {
     res.status(500).json({
       success: false,
